@@ -19,7 +19,7 @@
     <!-- Logo -->
     <a href="<?= (SITE . 'login'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">SR</span>
+      <span class="logo-mini">SSR</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">SyncRadio</span>
     </a>
