@@ -33,6 +33,7 @@ class Employee extends CI_Controller {
 
     public function save_employee() {
     
+        $config['file_name']     = $this->input->post('usuario');
         $config['upload_path']   = 'uploads/profiles/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['remove_spaces'] = TRUE;
