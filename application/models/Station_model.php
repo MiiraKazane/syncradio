@@ -16,12 +16,4 @@ class Station_model extends CI_Model {
         endif;
     }
 
-    public function get_rows() {
-        $this->db->from('stations');
-        $this->db->order_by('id_sta', 'ASC');
-        $query = $this->db->get();
-
-        return $query->result();
-    }
-
 }

@@ -9,16 +9,16 @@
 </head>
 <div class="content-wrapper">
     <section class="content-header">
-      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> Love<small>XHUA</small>
+      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> XHUA<small>Love</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">XHUA | Love</li>
       </ol>
     </section>  
+    <span class="center-block" align="center"><img width="200" height="150" src="<?= (IMG . 'love.png'); ?>"></span>
     <br><br>
-    <div class="container-fluid"> 
-    <center><img width="200" height="150" src="<?= (IMG . 'love.png'); ?>"></center>
+    <div class="container-fluid">
         <button class="btn btn-default btn-sm" onclick="add_report()" data-toggle="tooltip" title="Nuevo reporte"><i class="glyphicon glyphicon-plus"></i> Nuevo</button><br><br>
 
         <table id="table" class="table table-hover table-bordered" cellspacing="0" width="100%">

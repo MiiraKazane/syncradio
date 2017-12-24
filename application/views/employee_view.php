@@ -17,7 +17,7 @@
       </ol>
     </section><br><br>
     <div class="container-fluid">
-        <a class="btn btn-sm btn-default" data-toggle="tooltip" title="Nuevo empleado" href="<?= SITE ?>employee/add_employee"><i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo</a>
+        <a class="btn btn-sm btn-default" data-toggle="tooltip" title="Nuevo empleado" href="<?= SITE ?>employee/new_employee"><i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo</a>
         <br><br>
         <?php if(isset($employees)): ?>
         <table id="table" class="table table-hover table-bordered">
@@ -47,8 +47,8 @@
                               <span class="caret"></span></button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a href="<?= SITE ?>profile/see_profile/<?= $row->id_emp ?>"><i class="glyphicon glyphicon-eye-open"></i> Perfil</a></li>
-                                <li><a href="<?= SITE ?>employee/edit_employee/<?= $row->id_emp ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></li>
-                                <li><a href="<?= SITE ?>employee/delete_employee/<?= $row->id_emp ?>" onclick="return confirmar()"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</a></li>
+                                <li><a href="<?= SITE ?>employee/to_edit_employee/<?= $row->id_emp ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></li>
+                                <li><a href="<?= SITE ?>employee/delete_employee/<?= $row->id_emp ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</a></li>
                               </div>
                             </div>
                         </td>
@@ -98,14 +98,6 @@
                 trigger : 'hover'
             });
         });
-
-        function confirmar()
-{
-    if(confirm('¿Borrar empleado?'))
-        return true;
-    else
-        return false;
-}
     </script>
     </body>
 </html>
