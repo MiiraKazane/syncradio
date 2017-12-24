@@ -8,6 +8,7 @@ class Employee extends CI_Controller {
         if ($this->session->userdata('tipo') == FALSE || $this->session->userdata('tipo') != '1'):
         redirect(SITE.'login');
         endif;
+        //$this->output->enable_profiler(TRUE);
         $this->load->model('employee_model', 'moo');
         $this->load->model('department_model', 'poo');
     }
@@ -21,21 +22,66 @@ class Employee extends CI_Controller {
             $this->load->view('footer_view');   
     }
 
-    public function new_employee() {
-        $this->load->helper('form');
+    function add_employee() {   
+        if(isset($_POST) && count($_POST) > 0):
 
-        $data['list'] = $this->poo->get_rows();
-        $data['titulo'] = "SyncRadio - Nuevo empleado";
-        $data['error'] = '';
-        $this->load->view('employee_new_view', $data);
-        $this->load->view('footer_view');   
+            $config['file_name']     = $this->input->post('usuario');
+            $config['upload_path']   = 'uploads/profiles/';
+            $config['allowed_types'] = 'jpg';
+            $config['remove_spaces'] = TRUE;
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload();
+
+            $this->load->library('image_lib');
+            $conf['image_library']  = 'gd2';
+            $conf['source_image']   = $this->upload->data('full_path');
+            $conf['create_thumb']   = FALSE;
+            $conf['maintain_ratio'] = TRUE;
+            $conf['width']          = 500;
+            $conf['height']         = 500;
+            $conf['new_image']      = 'uploads/thumbs/';
+
+            $this->image_lib->clear();
+            $this->image_lib->initialize($conf);
+            $this->image_lib->resize();
+
+            $params = array(
+                'name_emp'          => $this->input->post('nombre'),
+                'tipo_log'          => $this->input->post('rol'),
+                'birth_date_emp'    => $this->input->post('fecha_nacimiento'),
+                'email_emp'         => $this->input->post('email'),
+                'rfc_emp'           => $this->input->post('rfc'),
+                'curp_emp'          => $this->input->post('curp'),
+                'nss_emp'           => $this->input->post('nss'),
+                'sbc_emp'           => $this->input->post('sbc'),
+                'social_reason_emp' => $this->input->post('rs'),
+                'usu_emp'           => $this->input->post('usuario'),
+                'pass_emp'          => $this->input->post('contrasena'),
+                'lastname_emp'      => $this->input->post('apellido'),
+                'job_emp'           => $this->input->post('puesto'),
+                'id_dep'            => $this->input->post('departamento'),
+                'telephone_emp'     => $this->input->post('telefono'),
+                'contract_emp'      => $this->input->post('estatus'),
+                'hire_date_emp'     => $this->input->post('ingreso'),
+                'picture_emp'       => $this->upload->data('file_name')
+            );
+            
+            $insert_id = $this->moo->save($params);
+            redirect('employee');
+        else:
+            $data['titulo'] = "SyncRadio - Nueva orden";
+            $data['list'] = $this->poo->get_rows();
+            $this->load->helper('tipos');
+            $this->load->view('employee_new_view',$data);
+        endif;
     }
 
     public function save_employee() {
     
         $config['file_name']     = $this->input->post('usuario');
         $config['upload_path']   = 'uploads/profiles/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['allowed_types'] = 'jpg';
         $config['remove_spaces'] = TRUE;
 
         $this->load->library('upload', $config);
@@ -74,6 +120,7 @@ class Employee extends CI_Controller {
             'hire_date_emp'     => $this->input->post('ingreso'),
             'picture_emp'       => $this->upload->data('file_name')
         );
+
         $insert = $this->moo->save($data);
         $this->load->helper('tipos');
         $data['employees'] = $this->moo->see_employees();
@@ -82,48 +129,59 @@ class Employee extends CI_Controller {
         $this->load->view('footer_view');
     }
     
-    public function to_edit_employee($id) {
+    function edit_employee($id) {
 
-        $this->load->helper('form');
-        $data['list']   = $this->poo->get_rows();
-        $data['titulo'] = "SyncRadio - Editar empleado";
-        $data['emp']  = $this->moo->get_by_id($id);
-        $this->load->view('employee_edit_view', $data);
-        $this->load->view('footer_view');
+        $employee = $this->moo->get_by_id($id);
+        if(isset($employee->id_emp))
+        {
+            if(isset($_POST) && count($_POST) > 0)     
+            {
+                $params = array(
+                    'name_emp'          => $this->input->post('nombre'),
+                    'tipo_log'          => $this->input->post('rol'),
+                    'birth_date_emp'    => $this->input->post('fecha_nacimiento'),
+                    'email_emp'         => $this->input->post('email'),
+                    'rfc_emp'           => $this->input->post('rfc'),
+                    'curp_emp'          => $this->input->post('curp'),
+                    'nss_emp'           => $this->input->post('nss'),
+                    'sbc_emp'           => $this->input->post('sbc'),
+                    'social_reason_emp' => $this->input->post('rs'),
+                    'usu_emp'           => $this->input->post('usuario'),
+                    'pass_emp'          => $this->input->post('contrasena'),
+                    'lastname_emp'      => $this->input->post('apellido'),
+                    'job_emp'           => $this->input->post('puesto'),
+                    'id_dep'            => $this->input->post('departamento'),
+                    'telephone_emp'     => $this->input->post('telefono'),
+                    'contract_emp'      => $this->input->post('estatus'),
+                    'hire_date_emp'     => $this->input->post('ingreso'),
+                );
+                
+                $this->moo->alter($id,$params);
+                redirect('employee');
+
+            }
+            else
+            {
+                $data['list'] = $this->poo->get_rows();
+                $data['titulo'] = 'SyncRadio - Editar empleado';
+                $data['emp'] = $this->moo->get_by_id($id);
+                $this->load->view('employee_edit_view',$data);
+            }
+        }
+        else
+            show_error('La orden que intentas modificar no existe');
     }
 
-    public function alter_employee() {
-
-        $data = array(
-            'name_emp'          => $this->input->post('nombre'),
-            'tipo_log'          => $this->input->post('rol'),
-            'birth_date_emp'    => $this->input->post('fecha_nacimiento'),
-            'email_emp'         => $this->input->post('email'),
-            'rfc_emp'           => $this->input->post('rfc'),
-            'curp_emp'          => $this->input->post('curp'),
-            'nss_emp'           => $this->input->post('nss'),
-            'sbc_emp'           => $this->input->post('sbc'),
-            'social_reason_emp' => $this->input->post('rs'),
-            'usu_emp'           => $this->input->post('usuario'),
-            'pass_emp'          => $this->input->post('contrasena'),
-            'lastname_emp'      => $this->input->post('apellido'),
-            'job_emp'           => $this->input->post('puesto'),
-            'id_dep'            => $this->input->post('departamento'),
-            'telephone_emp'     => $this->input->post('telefono'),
-            'contract_emp'      => $this->input->post('estatus'),
-            'hire_date_emp'     => $this->input->post('ingreso'),
-        );
-
-        $this->moo->alter($this->input->post('id'),$data);
-
-        $data['employees'] = $this->moo->see_employees();
-        $data['titulo'] = "SyncRadio - Empleados";
-        $this->load->view('employee_view', $data);
-        $this->load->view('footer_view');   
-    }
-
-    public function delete_employee($id) {
-        $this->moo->delete_by_id($id);
+    function delete_employee($id) {
+        
+        $employee = $this->moo->get_by_id($id);
+        
+        if(isset($employee->id_emp)):
+            $this->moo->delete_by_id($id);
+            redirect('employee');
+        else:
+            show_error('El empleado que intentas borrar no existe.');
+        endif;
     }
 
     public function if_exist() {  

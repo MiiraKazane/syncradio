@@ -9,16 +9,16 @@
 </head>
 <div class="content-wrapper">
     <section class="content-header">
-      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> XHRPC<small>La Bestia Grupera</small>
+      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> La Bestia Grupera<small>XHRPC</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">XHRPC | La Bestia Grupera</li>
       </ol>
-    </section>  
-    <span class="center-block" align="center"><img width="180" height="150" src="<?= (IMG . 'bestia.png'); ?>"></span>
+    </section>
     <br><br>
-    <div class="container-fluid">
+    <div class="container-fluid"> 
+    <center><img width="180" height="150" src="<?= (IMG . 'bestia.png'); ?>"></center>
         <button class="btn btn-default btn-sm" onclick="add_report()" data-toggle="tooltip" title="Nuevo reporte"><i class="glyphicon glyphicon-plus"></i> Nuevo</button><br><br>
 
         <table id="table" class="table table-hover table-bordered" cellspacing="0" width="100%">

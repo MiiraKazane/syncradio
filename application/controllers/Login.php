@@ -12,7 +12,6 @@ class Login extends CI_Controller {
 
         if ($this->session->userdata('tipo') == ''):
             $data['token']  = $this->token();
-            $data['titulo'] = 'SyncRadio - Login';
             $this->load->view('login_view', $data);
         else:
             switch($this->session->userdata('tipo')){
@@ -26,7 +25,7 @@ class Login extends CI_Controller {
                 redirect(SITE.'spot');
                 break;
                 case 4:
-                redirect(SITE.'spot');
+                redirect(SITE.'order');
                 break;
             }
         endif;

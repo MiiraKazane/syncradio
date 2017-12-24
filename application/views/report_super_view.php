@@ -17,9 +17,9 @@
         <li class="active">XHFO | Super</li>
       </ol>
     </section>
-    <span class="center-block" align="center"><img width="200" height="150" src="<?= (IMG . 'super.png'); ?>"></span>
-    <div class="container-fluid">
-        <br><br>
+    <br><br>
+    <div class="container-fluid"> 
+    <center><img width="200" height="150" src="<?= (IMG . 'super.png'); ?>"></center>
         <button class="btn btn-default btn-sm" onclick="add_report()" data-toggle="tooltip" title="Nuevo reporte"><i class="glyphicon glyphicon-plus"></i> Nuevo</button><br><br>
         <table id="table" class="table table-hover table-bordered" cellspacing="0" width="100%">
             <thead>
