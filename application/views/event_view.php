@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Eventos</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'bootstrap-datetimepicker.css'); ?>">
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
@@ -227,7 +227,6 @@
        "timeOut": "5000"
    }
 </script>
-<!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
    <div class="modal-dialog">
       <div class="modal-content">
@@ -303,11 +302,7 @@
             <button type="button" class="btn btn-danger btn-round-lg" data-dismiss="modal">Cancelar</button>
          </div>
       </div>
-      <!-- /.modal-content -->
    </div>
-   <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-<!-- End Bootstrap modal -->
 </body>
 </html>

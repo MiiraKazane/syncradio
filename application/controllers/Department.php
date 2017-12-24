@@ -13,7 +13,6 @@ class Department extends CI_Controller {
 
     public function index() {
 
-        $data['titulo'] = 'SyncRadio - Departamentos';
         $this->load->view('department_view', $data);
         $this->load->view('footer_view');
     }

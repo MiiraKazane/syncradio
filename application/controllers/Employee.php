@@ -16,7 +16,6 @@ class Employee extends CI_Controller {
     public function index() {
             
             $this->load->helper('tipos');
-            $data['titulo'] = "SyncRadio - Empleados";
             $data['employees'] = $this->moo->see_employees();
             $this->load->view('employee_view', $data);
             $this->load->view('footer_view');   
@@ -70,10 +69,10 @@ class Employee extends CI_Controller {
             $insert_id = $this->moo->save($params);
             redirect('employee');
         else:
-            $data['titulo'] = "SyncRadio - Nueva orden";
             $data['list'] = $this->poo->get_rows();
             $this->load->helper('tipos');
             $this->load->view('employee_new_view',$data);
+            $this->load->view('footer_view');
         endif;
     }
 
@@ -124,7 +123,6 @@ class Employee extends CI_Controller {
         $insert = $this->moo->save($data);
         $this->load->helper('tipos');
         $data['employees'] = $this->moo->see_employees();
-        $data['titulo'] = "SyncRadio - Empleados";
         $this->load->view('employee_view', $data);
         $this->load->view('footer_view');
     }
@@ -163,9 +161,9 @@ class Employee extends CI_Controller {
             else
             {
                 $data['list'] = $this->poo->get_rows();
-                $data['titulo'] = 'SyncRadio - Editar empleado';
                 $data['emp'] = $this->moo->get_by_id($id);
                 $this->load->view('employee_edit_view',$data);
+                $this->load->view('footer_view');
             }
         }
         else

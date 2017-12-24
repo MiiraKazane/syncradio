@@ -16,7 +16,6 @@ class Order extends CI_Controller {
 
     public function index() {
             
-            $data['titulo'] = "SyncRadio - Ordenes";
             $data['orders'] = $this->moo->see_orders();
             $this->load->view('order_view', $data);
             $this->load->view('footer_view');   
@@ -43,9 +42,9 @@ class Order extends CI_Controller {
             $insert_id = $this->moo->save($params);
             redirect('order');
         else:
-            $data['titulo'] = "SyncRadio - Nueva orden";
             $data['list'] = $this->poo->get_rows();
             $this->load->view('order_new_view',$data);
+            $this->load->view('footer_view');
         endif;
     }
     
@@ -79,9 +78,9 @@ class Order extends CI_Controller {
             else
             {
                 $data['list'] = $this->poo->get_rows();
-                $data['titulo'] = 'SyncRadio - Editar orden';
                 $data['ord'] = $this->moo->get_by_id($id);
                 $this->load->view('order_edit_view',$data);
+                $this->load->view('footer_view');
             }
         }
         else

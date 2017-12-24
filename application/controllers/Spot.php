@@ -14,7 +14,6 @@ class Spot extends CI_Controller {
     public function index() {
         
         $data['list'] = $this->sta->see_stations();
-        $data['titulo'] = 'SyncRadio - Control de spots';
         $this->load->view('spot_view', $data);
         $this->load->view('footer_view');
 

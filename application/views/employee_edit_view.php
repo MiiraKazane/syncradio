@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Editar empleado</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
 </head>
-<?php $ci =& get_instance();
-   $ci->load->view("navbar_view"); ?>
+    <?php $ci =& get_instance();
+    $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
    <section class="content-header">
-      <h1><i class="fa fa-users" aria-hidden="true"></i> Editar<small>empleado</small></h1>
+      <h1><i class="fa fa-users" aria-hidden="true"></i> Editar empleado</h1>
       <ol class="breadcrumb">
-         <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
-         <li><a href="<?= (SITE . 'employee'); ?>"><i class="fa fa-users"> Empleados</a></i>
+         <li><a href="<?= (SITE.'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+         <li><a href="<?= (SITE.'employee'); ?>"><i class="fa fa-users"> Empleados</a></i>
          <li class="active">Editar empleado</li>
       </ol>
    </section>
@@ -29,7 +29,6 @@
                      <legend>Detalles de inicio de sesión</legend>
                   </span>
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-3 col-sm-3">
                         <label class="control-label" for="rol">Rol</label>
                         <select id="rol" name="rol" class="form-control">
@@ -39,13 +38,11 @@
                            <option value="4" <?= $emp->tipo_log=='4'?'selected':'';?>>Continuista</option>
                         </select>
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-5 col-sm-5">
                         <label class="control-label" for="usuario">Usuario</label>
                         <input id="usuario" name="usuario" type="text" placeholder="usuario" class="form-control input-md" value="<?= $emp->usu_emp ?>">
                         <div id="Info"></div>
                      </div>
-                     <!-- tercera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="contrasena">Contraseña</label>  
                         <input id="contrasena" name="contrasena" type="text" placeholder="contraseña" class="form-control input-md" value="<?= $emp->pass_emp ?>">
@@ -58,17 +55,14 @@
                      <legend>Datos generales</legend>
                   </span>
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="apellido">Apellido(s)</label>  
                         <input id="apellido" name="apellido" type="text" placeholder="apellido(s)" class="form-control input-md" value="<?= $emp->lastname_emp ?>">
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-5 col-sm-5">
                         <label class="control-label" for="nombre">Nombre(s)</label>  
                         <input id="nombre" name="nombre" type="text" placeholder="nombre" class="form-control input-md" value="<?= $emp->name_emp ?>">
                      </div>
-                     <!-- tercera columna -->
                      <div class="col-md-3 col-sm-3">
                         <label class="control-label" for="selectbasic">Departamento</label>
                         <select name="departamento" id="departamento2" class="form-control">
@@ -86,12 +80,10 @@
                </div>
                <div class="form-group">
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="textinput">Puesto</label>  
                         <input id="puesto" name="puesto" type="text" placeholder="puesto" class="form-control input-md" value="<?= $emp->job_emp ?>">
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="estatus">Estatus</label>
                         <select id="estatus" name="estatus" class="form-control">
@@ -99,7 +91,6 @@
                            <option value="de confianza" <?= $emp->contract_emp=='de confianza'?'selected':'';?>>De confianza</option>
                         </select>
                      </div>
-                     <!-- tercera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="telefono">Teléfono</label>  
                         <input id="telefono" name="telefono" type="text" placeholder="Escribe teléfono" class="form-control input-md" value="<?= $emp->telephone_emp ?>">
@@ -108,17 +99,14 @@
                </div>
                <div class="form-group">
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="email">E-mail</label>  
                         <input id="email" name="email" type="email" placeholder="Escribe email" class="form-control input-md" value="<?= $emp->email_emp ?>">
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="fecha_nacimiento">Fecha nacimiento</label>  
                         <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" placeholder="Fecha de nacimiento" class="form-control input-md datepicker" value="<?= $emp->birth_date_emp ?>">
                      </div>
-                     <!-- tercera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="ingreso">Ingreso</label>  
                         <input id="ingreso" name="ingreso" type="text" placeholder="Fecha de ingreso" class="form-control input-md datepicker" value="<?= $emp->hire_date_emp ?>">
@@ -132,17 +120,14 @@
                   </span>
                   <br>
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="rfc">RFC</label>  
                         <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="rfc" name="rfc" type="text" placeholder="RFC" class="form-control input-md" value="<?= $emp->rfc_emp ?>">
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="curp">Curp</label>  
                         <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="curp" name="curp" type="text" placeholder="CURP" class="form-control input-md" value="<?= $emp->curp_emp ?>"> 
                      </div>
-                     <!-- tercera columna -->
                      <div class="col-md-4 col-sm-4">
                         <label class="control-label" for="nss">NSS</label>  
                         <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="nss" name="nss" type="text" placeholder="NSS" class="form-control input-md" value="<?= $emp->nss_emp ?>">
@@ -151,23 +136,20 @@
                </div>
                <div class="form-group">
                   <div class="row">
-                     <!-- primera columna -->
                      <div class="col-md-2 col-sm-2">
                         <label class="control-label" for="sbc">SBC</label>  
                         <input id="sbc" name="sbc" type="text" placeholder="SBC" class="form-control input-md" value="<?= $emp->sbc_emp ?>">
                         <span class="help-block"><small>(Enteros o decimales)</small></span>
                      </div>
-                     <!-- segunda columna -->
                      <div class="col-md-6 col-sm-6">
                         <label class="control-label" for="rs">Razón social</label>  
                         <input style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" id="rs" name="rs" type="text" placeholder="razón social" class="form-control input-md" value="<?= $emp->social_reason_emp ?>">
                      </div>
                   </div>
                </div>
-               <!-- Button -->
                <div class="form-group">
                   <div class="col-md-12">
-                     <button id="submit" name="submit" onclick="return valida();" class="btn btn-inverse center-block">Aceptar</button>
+                     <button id="submit" name="submit" onclick="return valida();" class="btn btn-info center-block">Aceptar</button>
                   </div>
                </div>
             </fieldset>
@@ -175,10 +157,6 @@
          </div>
       </div>
    </div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <script src ="<?= (JS . 'jquery.dataTables.min.js'); ?>"></script>
 <script src ="<?= (JS . 'dataTables.bootstrap.js'); ?>"></script>

@@ -1,8 +1,6 @@
 <script type="text/javascript">	
 	(function($) {
-
 		"use strict";
-
 		var options = {
 			events_source: '<?= SITE ?>Calendar/getAll',
 			view: 'month',
@@ -17,8 +15,6 @@
 			time_split: '30',
 			width: '90%',
 			merge_holidays: false,
-
-
 
 			onAfterEventsLoad: function(events) {
 				if(!events) {
@@ -67,5 +63,3 @@
 		});
 	}(jQuery));
 </script>
-
-

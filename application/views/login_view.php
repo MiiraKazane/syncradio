@@ -6,8 +6,8 @@
    <link rel="icon"       href="<?= (IMG . 'favicon.png'); ?>" type="image/x-icon">
 </head>
 <?php
-   $username = array('name' => 'username', 'id' => 'username', 'placeholder' => 'Introduce tu usuario', 'class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off');
-   $password = array('name' => 'password', 'placeholder' => 'introduce tu contraseña', 'class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off');
+   $username = array('name' => 'username', 'id' => 'username', 'placeholder' => 'Usuario', 'class' => 'form-control', 'required' => 'required');
+   $password = array('name' => 'password', 'placeholder' => 'Contraseña', 'class' => 'form-control', 'required' => 'required');
    $submit = array('name' => 'submit', 'value' => 'Iniciar sesión', 'class' => 'btn btn-info');
    ?>
 <body class="login-page">
@@ -15,15 +15,13 @@
       <div class="login-logo"><img src="<?= URL.'assetss/img/logo.png' ?>" width="300" height="100"></div>
       <div class="login-box-body">
          <?php $att = array('name' => 'form', 'id' => 'form'); ?>
-         <?= form_open(SITE . 'login/new_user', $att) ?>
+         <?= form_open(SITE.'login/new_user', $att) ?>
          <div class="form-group has-feedback">
             <?= form_input($username) ?>
-            <p><?= form_error('username') ?></p>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
          </div>
          <div class="form-group has-feedback">
             <?= form_password($password) ?>
-            <p><?= form_error('password') ?></p>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
          </div>
          <div class="row">

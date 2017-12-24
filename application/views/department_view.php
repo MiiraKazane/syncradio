@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Departamentos</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
 </head>
-<?php $ci =& get_instance();
-   $ci->load->view("navbar_view"); ?>
+    <?php $ci =& get_instance();
+    $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
    <div class="container-fluid">
       <section class="content-header">
          <h1><i class="fa fa-address-book-o" aria-hidden="true"></i> Departamentos</h1>
          <ol class="breadcrumb">
-            <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="<?= (SITE.'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
             <li class="active">Departamentos</li>
          </ol>
       </section>
       <br><br>
       <button class="btn btn-default btn-sm" onclick="add_department()" data-toggle="tooltip" title="Nuevo departamento"><i class="glyphicon glyphicon-plus"></i> Nuevo</button>
       <br><br>
-      <!-- <button class="btn btn-default" onclick="reload_table()" data-toggle="tooltip" title="Actualizar registros"><i class="glyphicon glyphicon-refresh"></i> Recargar</button>-->
       <table id="table" class="table table-hover table-bordered" width="100%">
          <thead>
             <tr>
@@ -124,13 +123,11 @@
            dataType: "JSON",
            success: function(data)
            {
-   
                $('[name="id"]').val(data.id_dep);
                $('[name="nombre"]').val(data.name_dep);
                $('[name="extension"]').val(data.extension_dep);
                $('#modal_form').modal('show'); 
                $('.modal-title').text('Modificar departamento');
-   
            },
            error: function (jqXHR, textStatus, errorThrown)
            {
@@ -167,11 +164,10 @@
                    reload_table();
    
                    if (save_method == 'add') {
-                                  toastr["info"]('Departamento agregado');                    
+                        toastr["info"]('Departamento agregado');                    
                        } else {
-                                  toastr["info"]('Departamento actualizado');
+                        toastr["info"]('Departamento actualizado');
                        }
-   
                }else
                {
                    for (var i = 0; i < data.inputerror.length; i++)
@@ -213,15 +209,12 @@
    
            }
        }
-   
        toastr.options = {
        "newestOnTop": false,
        "positionClass": "toast-top-right",
        "timeOut": "5000"
    }
-   
 </script>
-<!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
    <div class="modal-dialog">
       <div class="modal-content">
@@ -255,11 +248,7 @@
             <button type="button" class="btn btn-danger btn-round-lg" data-dismiss="modal">Cancelar</button>
          </div>
       </div>
-      <!-- /.modal-content -->
    </div>
-   <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-<!-- End Bootstrap modal -->
 </body>
 </html>

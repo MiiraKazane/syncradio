@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio | Nueva orden</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />

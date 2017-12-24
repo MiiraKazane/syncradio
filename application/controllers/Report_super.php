@@ -13,7 +13,6 @@ class Report_super extends CI_Controller {
 
     public function index() {
 
-        $data['titulo'] = 'Super 92.5 FM';
         $data['list'] = $this->cat->get_rows();
         $this->load->view('report_super_view', $data);
         $this->load->view('footer_view');

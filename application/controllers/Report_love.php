@@ -13,7 +13,6 @@ class Report_love extends CI_Controller {
 
     public function index() {
 
-        $data['titulo'] = 'Love 90.1 FM';
         $data['list'] = $this->cat->get_rows();
         $this->load->view('report_love_view', $data);
         $this->load->view('footer_view');

@@ -12,8 +12,7 @@ class Queries extends CI_Controller {
 
 	public function index() {
 
-		$data['titulo'] = 'SyncRadio - Reportes por fecha';
-		$this->load->view('queries_view',$data);
+		$this->load->view('queries_view');
         $this->load->view('footer_view');
     }
 
@@ -25,7 +24,6 @@ class Queries extends CI_Controller {
 		$data['end']   = $this->input->post('date_end');
     	$this->load->model('queries_model');
     	$data['queue'] = $this->queries_model->get_queries($data['start'],$data['end']);
-    	$data['titulo'] = 'SyncRadio - Reportes por fecha';
 		$this->load->view('queries_view',$data);
         $this->load->view('footer_view');
 	}

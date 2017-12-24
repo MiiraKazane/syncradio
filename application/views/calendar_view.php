@@ -2,9 +2,9 @@
 <head>
    <title><?= $titulo ?></title>
    <link rel="stylesheet" href="<?php echo(CSS . 'calendar.css'); ?>">
-   <?php $ci =& get_instance();
-      $ci->load->view("navbar_view"); ?>
 </head>
+<?php $ci =& get_instance();
+      $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
 <section class="content-header">
    <h1><i class="fa fa-calendar" aria-hidden="true"></i> Calendario</h1>

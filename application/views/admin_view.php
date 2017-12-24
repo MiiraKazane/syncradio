@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
-   <?php $ci =& get_instance();
-      $ci->load->view("navbar_view"); ?>
+   <title>SyncRadio - Bienvenido</title>
 </head>
+<?php $ci =& get_instance();
+      $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
    <section class="content-header">
       <h1><i class="fa fa-dashboard"></i> Inicio</h1>

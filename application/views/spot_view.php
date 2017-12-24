@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Control de spots</title>
    <link rel="stylesheet" href="<?=(CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?=(CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?=(CSS . 'toastr.min.css'); ?>" />
 </head>
-<?php $ci = & get_instance();
-   $ci->load->view("navbar_view");
-   $this->load->helper('tipos'); ?>
+    <?php $ci = & get_instance();
+    $ci->load->view("navbar_view");
+    $this->load->helper('tipos'); ?>
 <div class="content-wrapper">
    <section class="content-header">
       <h1><i class="fa fa-rss" aria-hidden="true"></i> Control de spots</h1>
@@ -214,7 +214,6 @@
    }
    
 </script>
-<!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
    <div class="modal-dialog">
       <div class="modal-content">
@@ -251,7 +250,7 @@
                      <label class="control-label col-md-3" for="estacion">Estación: </label>
                      <div class="col-md-6">
                         <select name="estacion" class="form-control" id="estacion">
-                           <option value="">-- estacion --</option>
+                           <option value="">-- Estación --</option>
                            <?php
                               foreach ($list as $value) {
                                   echo '<option value="' . $value->id_sta . '">' . $value->acronym_sta.' '.$value->name_sta . '</option>';
@@ -275,12 +274,8 @@
             <button type="button" class="btn btn-danger btn-round-lg" data-dismiss="modal">Cancelar</button>
          </div>
       </div>
-      <!-- /.modal-content -->
    </div>
-   <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-<!-- End Bootstrap modal -->
 <script type="text/javascript">
    $('.datepicker').datepicker({
        autoclose: true,

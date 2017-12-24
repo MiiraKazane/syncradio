@@ -5,27 +5,13 @@
    else {
        $start = $start;
    }
-       $date_start = array(
-           'name'        => 'date_start', 
-           'placeholder' => 'Fecha de inicio', 
-           'class'       => 'form-control datepicker', );
-   
-       $date_end = array(
-           'name'        => 'date_end', 
-           'placeholder' => 'Fecha de fin', 
-           'class'       => 'form-control datepicker');
-       
-       $submit = array(
-           'name'    => 'submit', 
-           'value'   => 'Buscar', 
-           'title'   => 'Buscar', 
-           'class'   => 'btn btn-info btn-sm', 
-           'onclick' => 'return valida()');
-   
+    $date_start = array('name' => 'date_start','placeholder' => 'Fecha de inicio','class' => 'form-control datepicker', );
+    $date_end = array('name' => 'date_end','placeholder' => 'Fecha de fin','class' => 'form-control datepicker');
+    $submit = array('name' => 'submit','value' => 'Buscar','title' => 'Buscar','class' => 'btn btn-info btn-sm','onclick' => 'return valida()');
     $att = array('name' => 'form', 'id' => 'form'); ?>
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Reportes por fecha</title>
    <link rel="stylesheet" href="<?=(CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?=(CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?=(CSS . 'toastr.min.css'); ?>" />
@@ -97,7 +83,6 @@
 <script>
    $(document).ready(function() {
    
-       //datatables
    table = $('#table').DataTable({
    "columnDefs": [
                {

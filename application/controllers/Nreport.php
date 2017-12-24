@@ -14,7 +14,6 @@ class Nreport extends CI_Controller {
     public function index() {
         
         $data['list'] = $this->cat->get_rows();
-        $data['titulo'] = 'SyncRadio - reportes generales';
         $this->load->view('nreport_view', $data);
         $this->load->view('footer_view');
 

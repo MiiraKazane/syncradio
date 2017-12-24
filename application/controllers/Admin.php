@@ -13,7 +13,6 @@ class Admin extends CI_Controller {
     public function index() {
 
         $this->load->model('random_model');
-        $data['titulo'] = 'SyncRadio - Bienvenido';
         //Totales
         $data['num_normal'] = $this->random_model->get_num_rep_normal();
         $data['num_bestia'] = $this->random_model->get_num_rep_bestia();

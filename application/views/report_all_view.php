@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio - Reporte completo</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
 </head>
@@ -8,7 +8,7 @@
    $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
    <section class="content-header">
-      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> Reporte<small>Completo</small>
+      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> Reporte completo
       </h1>
       <ol class="breadcrumb">
          <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -16,9 +16,7 @@
       </ol>
    </section>
    <div class="container-fluid">
-      <p>
-      <h3>Descripción:</h3>
-      <?= $reporte->description ?></p>
+      <p><h3>Descripción:</h3><?= $reporte->description ?></p>
       <table class="table table-default table-condensed">
          <tr class="text-center">
             <td>
@@ -97,9 +95,7 @@
     var id = '<?= $reporte->id; ?>'
        $(document).ready(function() {
    
-           //datatables
            table = $('#table').DataTable({ 
-               
                "serverSide": true,
                "ajax": {
                    "url": "<?= site_url('comment/ajax_comments/') ?>/" + id,

@@ -13,7 +13,6 @@ class Report_bestia extends CI_Controller {
 
     public function index() {
 
-        $data['titulo'] = 'La Bestia Grupera 99.3 FM';
         $data['list'] = $this->cat->get_rows();
         $this->load->view('report_bestia_view', $data);
         $this->load->view('footer_view');
@@ -100,15 +99,11 @@ class Report_bestia extends CI_Controller {
     }
 
     public function report_all($id) {
-        if ($this->session->userdata('tipo') == FALSE) {
-            redirect(site_url() . 'login');
-        }
         
         $this->load->helper('tipos');
         $this->load->model('comment_model');
         $data['reporte']     = $this->moo->get_complete_report($id);
         $data['comentarios'] = $this->comment_model->get_comments($id);
-        $data['titulo']      = 'Audiorama - Reporte completo';
         $this->load->view('report_all_view',$data);
         $this->load->view('footer_view');
        }

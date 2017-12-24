@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title><?= $titulo ?></title>
+      <title>SyncRadio - Ordenes</title>
       <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    </head>
    <?php $ci =& get_instance();

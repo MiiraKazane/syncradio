@@ -15,7 +15,6 @@ class Profile extends CI_Controller {
 
 	public function see_profile($id) {
         $this->load->helper('tipos');
-        $data['titulo'] = 'SyncRadio - Perfil';
         $data['emp'] = $this->moo->get_by_id($id);
         $this->load->view('profile_view',$data);
         $this->load->view('footer_view');

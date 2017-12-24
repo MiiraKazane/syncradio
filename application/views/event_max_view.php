@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
-   <?php $ci =& get_instance();
-      $ci->load->view("navbar_view"); ?>
+   <title>SyncRadio | Evento completo</title>
 </head>
+<?php $ci =& get_instance();
+      $ci->load->view("navbar_view"); ?>
 <div class="content-wrapper">
    <section class="content-header">
-      <h1><i class="fa fa-flag-o" aria-hidden="true"></i> Evento<small>completo</small>
-      </h1>
+      <h1><i class="fa fa-flag-o" aria-hidden="true"></i> Evento completo</h1>
       <ol class="breadcrumb">
          <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
          <li><a href="<?= (SITE . 'calendar'); ?>"><i class="fa fa-calendar"></i> Calendario</a></li>

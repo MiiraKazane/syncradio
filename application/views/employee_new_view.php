@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio | Nuevo empleado</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'bootstrap-datepicker.min.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
@@ -171,7 +171,7 @@
                <!-- Button -->
                <div class="form-group">
                   <div class="col-md-12">
-                     <button id="submit" name="submit" onclick="return valida();" class="btn btn-inverse center-block">Aceptar</button>
+                     <button id="submit" name="submit" onclick="return valida();" class="btn btn-info center-block">Aceptar</button>
                   </div>
                </div>
             </fieldset>
@@ -179,7 +179,6 @@
          </div>
       </div>
    </div>
-</div>
 </div>
 <script src ="<?= (JS . 'jquery.dataTables.min.js'); ?>"></script>
 <script src ="<?= (JS . 'dataTables.bootstrap.js'); ?>"></script>

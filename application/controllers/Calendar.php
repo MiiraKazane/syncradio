@@ -45,7 +45,6 @@ class Calendar extends CI_Controller {
     public function render_max($id){
             $this->load->helper('tipos');
             $data['row'] = $this->moo->get_by_id($id);
-            $data['titulo'] = "SyncRadio - Evento completo";
             $this->load->view('event_max_view',$data);
             $this->load->view('footer_view');
     }

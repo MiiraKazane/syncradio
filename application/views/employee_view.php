@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title><?= $titulo ?></title>
+        <title>SyncRadio | Empleados</title>
         <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
     </head> 
     <?php $ci =& get_instance();
     $ci->load->view("navbar_view"); ?>
-
 <div class="content-wrapper">
     <div class="container-fluid">
         <section class="content-header">
       <h1><i class="fa fa-users" aria-hidden="true"></i> Empleados</h1>
       <ol class="breadcrumb">
-        <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="<?= (SITE.'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">Empleados</li>
       </ol>
     </section><br><br>

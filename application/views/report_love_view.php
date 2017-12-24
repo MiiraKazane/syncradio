@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <head> 
-    <title><?= $titulo ?></title>
+    <title>Love 90.1 FM</title>
     <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
     <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
-
+</head>
     <?php $ci =& get_instance();
     $ci->load->view("navbar_view"); ?>
-</head>
 <div class="content-wrapper">
     <section class="content-header">
-      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> Love<small>XHUA</small>
-      </h1>
+      <h1><i class="fa fa-list-ol" aria-hidden="true"></i> XHUA | Love</h1>
       <ol class="breadcrumb">
         <li><a href="<?= (SITE . 'login'); ?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">XHUA | Love</li>
@@ -18,7 +16,7 @@
     </section>  
     <br><br>
     <div class="container-fluid"> 
-    <center><img width="200" height="150" src="<?= (IMG . 'love.png'); ?>"></center>
+    <center><img width="230" height="150" src="<?= (IMG . 'love.png'); ?>"></center>
         <button class="btn btn-default btn-sm" onclick="add_report()" data-toggle="tooltip" title="Nuevo reporte"><i class="glyphicon glyphicon-plus"></i> Nuevo</button><br><br>
 
         <table id="table" class="table table-hover table-bordered" cellspacing="0" width="100%">
@@ -37,11 +35,9 @@
         </table>
     </div>
 </div>
-
     <script src ="<?= (JS . 'jquery.dataTables.min.js'); ?>"></script>
     <script src ="<?= (JS . 'dataTables.bootstrap.js'); ?>"></script>
     <script src ="<?= (JS . 'toastr.min.js'); ?>"></script>
-
     <script type="text/javascript">
 
     var save_method;
@@ -49,9 +45,7 @@
 
     $(document).ready(function() {
 
-        //datatables
         table = $('#table').DataTable({ 
-
             "processing": false,
             "serverSide": true,
             "ajax": {
@@ -76,8 +70,8 @@
         "sNext":     "Siguiente",
         "sPrevious": "Anterior"
         },
-                            "infoFiltered": " "
-                        }
+        "infoFiltered": " "
+        }
         });
 
        setInterval( function () {
@@ -152,11 +146,9 @@
             dataType: "JSON",
             success: function(data)
             {
-
                 $('[name="comentario"]').val(data.description);
                 $('#modal_see').modal('show');
                 $('.modal-title').text('Ver reporte');
-
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -247,7 +239,6 @@
     }
 
     </script>
-    <!-- Bootstrap modal -->
     <div class="modal fade" id="modal_form" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -307,9 +298,8 @@
                     <button type="button" id="btnSave" onclick="save()" class="btn btn-primary btn-round-lg">Guardar</button>
                     <button type="button" class="btn btn-danger btn-round-lg" data-dismiss="modal">Cancelar</button>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- End Bootstrap modal -->
+            </div>
+        </div>
+    </div>
     </body>
 </html>

@@ -16,7 +16,6 @@ class Event extends CI_Controller {
     public function index() {
 
         $data['list'] = $this->moo->get_rows();
-        $data['titulo'] = 'SyncRadio - Eventos';
         $this->load->view('event_view', $data);
         $this->load->view('footer_view');
     }

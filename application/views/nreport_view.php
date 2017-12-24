@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <head>
-   <title><?= $titulo ?></title>
+   <title>SyncRadio | Reportes generales</title>
    <link rel="stylesheet" href="<?= (CSS . 'dataTables.bootstrap.css'); ?>" />
    <link rel="stylesheet" href="<?= (CSS . 'toastr.min.css'); ?>" />
-   <?php $ci = & get_instance();
-      $ci->load->view("navbar_view");
-      $this->load->helper('tipos'); ?>
 </head>
+    <?php $ci = & get_instance();
+    $ci->load->view("navbar_view");
+    $this->load->helper('tipos'); ?>
 <div class="content-wrapper">
    <section class="content-header">
       <h1><i class="fa fa-list-ol" aria-hidden="true"></i> Reportes generales
@@ -43,7 +43,6 @@
    
    $(document).ready(function () {
    
-       //datatables
        table = $('#table').DataTable({
    
            "processing": false,
@@ -123,7 +122,6 @@
                $('[name="estatus"]').val(data.status);
                $('#modal_form').modal('show');
                $('.modal-title').text('Modificar reporte');
-   
            },
            error: function (jqXHR, textStatus, errorThrown)
            {
@@ -233,7 +231,6 @@
    }
    
 </script>
-<!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
    <div class="modal-dialog">
       <div class="modal-content">
@@ -294,11 +291,7 @@
             <button type="button" class="btn btn-danger btn-round-lg" data-dismiss="modal">Cancelar</button>
          </div>
       </div>
-      <!-- /.modal-content -->
    </div>
-   <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-<!-- End Bootstrap modal -->
 </body>
 </html>
